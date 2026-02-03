@@ -1,0 +1,665 @@
+.main {
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    padding: 10rem 1.5rem 6rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.heroOrb1,
+.heroOrb2 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.heroOrb1 {
+    width: 500px;
+    height: 500px;
+    background: var(--orb-primary);
+    top: -200px;
+    right: -100px;
+}
+
+.heroOrb2 {
+    width: 400px;
+    height: 400px;
+    background: var(--orb-secondary);
+    bottom: -100px;
+    left: -100px;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-option-active);
+    border: 1px solid var(--border-accent);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.gradientText {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.heroSubtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   COMMON SECTION STYLES
+   ============================================ */
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.sectionTitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   MISSION SECTION
+   ============================================ */
+.missionSection {
+    padding: 4rem 1.5rem 6rem;
+}
+
+.missionGrid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.missionContent .badge {
+    margin-bottom: 1.25rem;
+}
+
+.missionContent .sectionTitle {
+    text-align: left;
+}
+
+.missionText {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+}
+
+.missionStats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.missionStatCard {
+    padding: 1.75rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.missionStatCard:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.missionStatValue {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.25rem;
+}
+
+.missionStatLabel {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   VALUES SECTION
+   ============================================ */
+.valuesSection {
+    padding: 6rem 1.5rem;
+    background: var(--bg-hero-gradient);
+}
+
+.valuesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.valueCard {
+    padding: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.valueCard:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-xl);
+}
+
+.valueIcon {
+    width: 52px;
+    height: 52px;
+    background: var(--gradient-primary);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-on-accent);
+    margin: 0 auto 1.25rem;
+}
+
+.valueTitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.valueDescription {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* ============================================
+   TEAM SECTION
+   ============================================ */
+.teamSection {
+    padding: 6rem 1.5rem;
+}
+
+.teamGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.teamCard {
+    padding: 2.5rem 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.teamCard:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-xl);
+}
+
+.teamAvatar {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-on-accent);
+    margin: 0 auto 1.5rem;
+    box-shadow: var(--shadow-button);
+}
+
+.teamName {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.375rem;
+}
+
+.teamRole {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--bg-option-active);
+    border-radius: 100px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+}
+
+.teamDescription {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+}
+
+.teamSocial {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-toggle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+}
+
+.teamSocial:hover {
+    background: var(--gradient-primary);
+    border-color: transparent;
+    color: var(--text-on-accent);
+}
+
+/* Mentor */
+.mentorSection {
+    text-align: center;
+}
+
+.mentorHeading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+}
+
+.mentorCard {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+}
+
+.mentorAvatar {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-on-accent);
+    flex-shrink: 0;
+}
+
+.mentorInfo {
+    text-align: left;
+}
+
+.mentorName {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.125rem;
+}
+
+.mentorRole {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--success);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.mentorDescription {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* ============================================
+   TECHNOLOGY SECTION
+   ============================================ */
+.techSection {
+    padding: 6rem 1.5rem;
+    background: var(--bg-hero-gradient);
+}
+
+.techGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+}
+
+.techCard {
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.techCard:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-lg);
+}
+
+.techIcon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.techName {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.techCategory {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ============================================
+   INSTITUTION SECTION
+   ============================================ */
+.institutionSection {
+    padding: 4rem 1.5rem;
+}
+
+.institutionCard {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    text-align: center;
+}
+
+.institutionIcon {
+    width: 64px;
+    height: 64px;
+    background: var(--gradient-primary);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-on-accent);
+    margin: 0 auto 1.5rem;
+}
+
+.institutionTitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.institutionDept {
+    font-size: 1.0625rem;
+    color: var(--accent-primary);
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+}
+
+.institutionText {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.institutionBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    background: var(--success-bg);
+    border: 1px solid var(--success-border);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--success);
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+.ctaSection {
+    padding: 4rem 1.5rem 6rem;
+}
+
+.ctaCard {
+    position: relative;
+    padding: 4rem;
+    background: var(--cta-bg);
+    border: 1px solid var(--cta-border);
+    border-radius: 32px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.ctaOrb1,
+.ctaOrb2 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.ctaOrb1 {
+    width: 300px;
+    height: 300px;
+    background: var(--orb-primary);
+    top: -150px;
+    right: -50px;
+}
+
+.ctaOrb2 {
+    width: 250px;
+    height: 250px;
+    background: var(--orb-secondary);
+    bottom: -100px;
+    left: -50px;
+}
+
+.ctaContent {
+    position: relative;
+    z-index: 1;
+}
+
+.ctaTitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.ctaSubtitle {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 450px;
+    margin: 0 auto 2rem;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 1rem 2rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-on-accent);
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: var(--shadow-button);
+    transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+    box-shadow: var(--glow-primary);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+    .missionGrid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .missionContent .sectionTitle {
+        text-align: center;
+    }
+
+    .missionContent .badge {
+        display: flex;
+        justify-content: center;
+    }
+
+    .missionText {
+        text-align: center;
+    }
+
+    .valuesGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .teamGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .techGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 8rem 1rem 4rem;
+    }
+
+    .valuesGrid,
+    .teamGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .techGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mentorCard {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .mentorInfo {
+        text-align: center;
+    }
+
+    .ctaCard {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .missionSection,
+    .valuesSection,
+    .teamSection,
+    .techSection,
+    .institutionSection,
+    .ctaSection {
+        padding: 3rem 1rem;
+    }
+}

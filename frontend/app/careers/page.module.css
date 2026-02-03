@@ -1,0 +1,700 @@
+.main {
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    padding: 10rem 1.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.heroOrb1,
+.heroOrb2,
+.ctaOrb1,
+.ctaOrb2 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.heroOrb1 {
+    width: 500px;
+    height: 500px;
+    background: var(--orb-primary);
+    top: -200px;
+    right: -100px;
+}
+
+.heroOrb2 {
+    width: 400px;
+    height: 400px;
+    background: var(--orb-secondary);
+    bottom: 0;
+    left: -100px;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-option-active);
+    border: 1px solid var(--border-accent);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+}
+
+.gradientText {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.heroSubtitle {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* ============================================
+   FILTER SECTION
+   ============================================ */
+.filterSection {
+    padding: 0 1.5rem 2rem;
+    position: sticky;
+    top: 72px;
+    z-index: 50;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding-top: 1.5rem;
+}
+
+.searchRow {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.searchBox {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0 1.25rem;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 14px;
+    transition: all 0.2s ease;
+}
+
+.searchBox:focus-within {
+    border-color: var(--input-focus-border);
+    box-shadow: var(--input-focus-shadow);
+}
+
+.searchBox svg {
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.searchInput {
+    flex: 1;
+    padding: 1rem 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.searchInput::placeholder {
+    color: var(--text-muted);
+}
+
+.clearSearch {
+    padding: 0.375rem;
+    background: var(--bg-toggle);
+    border: none;
+    border-radius: 6px;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.clearSearch:hover {
+    background: var(--bg-toggle-hover);
+    color: var(--text-primary);
+}
+
+.filterToggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 1.25rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filterToggle:hover {
+    background: var(--bg-toggle-hover);
+    color: var(--text-primary);
+}
+
+.filterActive {
+    background: var(--bg-option-active) !important;
+    border-color: var(--border-accent) !important;
+    color: var(--accent-primary) !important;
+}
+
+.filterToggle svg:last-child {
+    transition: transform 0.2s ease;
+}
+
+.rotated {
+    transform: rotate(180deg);
+}
+
+/* Filter Panel */
+.filterPanel {
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    margin-bottom: 1rem;
+}
+
+.filterGroup {
+    margin-bottom: 1.25rem;
+}
+
+.filterGroup:last-child {
+    margin-bottom: 0;
+}
+
+.filterLabel {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.filterTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.filterTag {
+    padding: 0.5rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    background: var(--bg-toggle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filterTag:hover {
+    background: var(--bg-toggle-hover);
+    color: var(--text-primary);
+}
+
+.filterTagActive {
+    background: var(--bg-option-active) !important;
+    border-color: var(--border-accent) !important;
+    color: var(--accent-primary) !important;
+}
+
+.filterRow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.filterSelect {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2371717a' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+}
+
+.filterSelect option {
+    background: var(--bg-card-solid);
+    color: var(--text-primary);
+}
+
+.trendingToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: var(--bg-toggle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.trendingToggle:hover {
+    background: var(--bg-toggle-hover);
+}
+
+.trendingActive {
+    background: rgba(239, 68, 68, 0.1) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+    color: #ef4444 !important;
+}
+
+.trendingActive svg {
+    color: #ef4444;
+}
+
+.clearFilters {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-top: 1rem;
+    padding: 0.625rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: var(--accent-primary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.clearFilters:hover {
+    color: var(--accent-secondary);
+}
+
+.resultsInfo {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.resultsInfo strong {
+    color: var(--text-primary);
+}
+
+/* ============================================
+   CAREERS GRID
+   ============================================ */
+.careersSection {
+    padding: 2rem 1.5rem 4rem;
+}
+
+.careersGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.careerCard {
+    position: relative;
+    padding: 1.75rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.careerCard:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-xl);
+}
+
+.trendingBadge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.625rem;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 6px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #ef4444;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.bookmarkBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem;
+    background: var(--bg-toggle);
+    border: none;
+    border-radius: 8px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.bookmarkBtn:hover {
+    background: var(--bg-toggle-hover);
+    color: var(--text-primary);
+}
+
+.bookmarked {
+    background: var(--bg-option-active) !important;
+    color: var(--accent-primary) !important;
+}
+
+.careerIcon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+.careerCategory {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.careerTitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.625rem;
+}
+
+.careerDescription {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    flex: 1;
+}
+
+.careerMeta {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+}
+
+.metaItem svg {
+    color: var(--accent-primary);
+}
+
+.careerSkills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin-bottom: 1.25rem;
+}
+
+.skillTag {
+    padding: 0.25rem 0.625rem;
+    background: var(--bg-toggle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.skillMore {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    color: var(--accent-primary);
+}
+
+.careerFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.matchScore {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--success);
+}
+
+.matchScore svg {
+    color: var(--success);
+}
+
+.viewBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.625rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--accent-primary);
+    background: var(--bg-option-active);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.viewBtn:hover {
+    background: var(--gradient-primary);
+    color: var(--text-on-accent);
+}
+
+/* No Results */
+.noResults {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.noResultsIcon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.noResults h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.noResults p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.clearFiltersBtn {
+    padding: 0.75rem 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--accent-primary);
+    background: var(--bg-option-active);
+    border: 1px solid var(--border-accent);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clearFiltersBtn:hover {
+    background: var(--gradient-primary);
+    border-color: transparent;
+    color: var(--text-on-accent);
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+.ctaSection {
+    padding: 2rem 1.5rem 6rem;
+}
+
+.ctaCard {
+    position: relative;
+    padding: 4rem;
+    background: var(--cta-bg);
+    border: 1px solid var(--cta-border);
+    border-radius: 28px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.ctaOrb1 {
+    width: 300px;
+    height: 300px;
+    background: var(--orb-primary);
+    top: -120px;
+    right: -80px;
+}
+
+.ctaOrb2 {
+    width: 250px;
+    height: 250px;
+    background: var(--orb-secondary);
+    bottom: -100px;
+    left: -60px;
+}
+
+.ctaContent {
+    position: relative;
+    z-index: 1;
+}
+
+.ctaTitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.ctaSubtitle {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 1rem 2rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-on-accent);
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: var(--shadow-button);
+    transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+    box-shadow: var(--glow-primary);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+    .careersGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filterRow {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 8rem 1rem 3rem;
+    }
+
+    .filterSection {
+        top: 60px;
+        padding: 1rem;
+    }
+
+    .searchRow {
+        flex-direction: column;
+    }
+
+    .filterToggle {
+        width: 100%;
+        justify-content: center;
+        padding: 0.875rem;
+    }
+
+    .filterRow {
+        grid-template-columns: 1fr;
+    }
+
+    .careersGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .ctaCard {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .careersSection {
+        padding: 1.5rem 1rem 3rem;
+    }
+}
