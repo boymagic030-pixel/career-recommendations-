@@ -42,6 +42,7 @@ const footerLinks = {
         { label: 'Terms of Service', href: '/terms' },
         { label: 'Cookie Policy', href: '/cookies' },
         { label: 'Data Protection', href: '/data-protection' },
+        { label: 'Plagiarism Policy', href: '/plagiarism' },
     ],
 };
 
@@ -176,6 +177,15 @@ export default function Footer() {
                             Built with ❤️ by Group 12 - Department of AI & Data Science,
                             St. Joseph College of Engineering
                         </p>
+                        <div className={styles.bottomLegalLinks}>
+                            <Link href="/data-protection">Data Protection</Link>
+                            <span className={styles.dot}>•</span>
+                            <Link href="/plagiarism">Plagiarism Policy</Link>
+                            <span className={styles.dot}>•</span>
+                            <Link href="/blog">Blog</Link>
+                            <span className={styles.dot}>•</span>
+                            <Link href="/faq">FAQ</Link>
+                        </div>
                     </div>
 
                     <div className={styles.socialLinks}>

@@ -19,6 +19,7 @@ import {
     Sparkles,
 } from 'lucide-react';
 import { Navbar, Footer } from '@/components';
+import { careersData, Career } from '@/data/careers';
 import styles from './page.module.css';
 
 const fadeInUp = {
@@ -34,165 +35,7 @@ const staggerContainer = {
     },
 };
 
-// Sample careers data
-const careersData = [
-    {
-        id: 1,
-        title: 'Data Scientist',
-        icon: '📊',
-        category: 'Technology',
-        salary: '₹8-25 LPA',
-        growth: 'High',
-        education: "Bachelor's Degree",
-        match: 92,
-        description: 'Analyze complex data to help companies make better decisions using statistical methods and machine learning.',
-        skills: ['Python', 'Machine Learning', 'Statistics', 'SQL'],
-        trending: true,
-    },
-    {
-        id: 2,
-        title: 'Software Engineer',
-        icon: '💻',
-        category: 'Technology',
-        salary: '₹6-30 LPA',
-        growth: 'Very High',
-        education: "Bachelor's Degree",
-        match: 88,
-        description: 'Design, develop, and maintain software applications and systems for various platforms.',
-        skills: ['JavaScript', 'Python', 'System Design', 'Git'],
-        trending: true,
-    },
-    {
-        id: 3,
-        title: 'Product Manager',
-        icon: '🎯',
-        category: 'Business',
-        salary: '₹12-35 LPA',
-        growth: 'High',
-        education: "Bachelor's/MBA",
-        match: 85,
-        description: 'Lead product development from conception to launch, balancing user needs with business goals.',
-        skills: ['Strategy', 'Communication', 'Analytics', 'Leadership'],
-        trending: true,
-    },
-    {
-        id: 4,
-        title: 'UX Designer',
-        icon: '🎨',
-        category: 'Creative',
-        salary: '₹6-20 LPA',
-        growth: 'High',
-        education: "Bachelor's Degree",
-        match: 82,
-        description: 'Create intuitive and delightful user experiences through research, design, and testing.',
-        skills: ['Figma', 'User Research', 'Prototyping', 'Design Thinking'],
-        trending: false,
-    },
-    {
-        id: 5,
-        title: 'Machine Learning Engineer',
-        icon: '🤖',
-        category: 'Technology',
-        salary: '₹10-35 LPA',
-        growth: 'Very High',
-        education: "Master's Preferred",
-        match: 90,
-        description: 'Build and deploy machine learning models at scale for real-world applications.',
-        skills: ['Python', 'TensorFlow', 'Deep Learning', 'MLOps'],
-        trending: true,
-    },
-    {
-        id: 6,
-        title: 'Digital Marketing Manager',
-        icon: '📱',
-        category: 'Business',
-        salary: '₹5-18 LPA',
-        growth: 'Medium',
-        education: "Bachelor's Degree",
-        match: 75,
-        description: 'Plan and execute digital marketing campaigns across various channels.',
-        skills: ['SEO', 'Google Ads', 'Analytics', 'Content Strategy'],
-        trending: false,
-    },
-    {
-        id: 7,
-        title: 'Clinical Psychologist',
-        icon: '🧠',
-        category: 'Healthcare',
-        salary: '₹4-15 LPA',
-        growth: 'Growing',
-        education: "Master's/Doctorate",
-        match: 70,
-        description: 'Assess and treat mental health conditions through therapy and counseling.',
-        skills: ['Counseling', 'Assessment', 'Empathy', 'Research'],
-        trending: false,
-    },
-    {
-        id: 8,
-        title: 'Financial Analyst',
-        icon: '💹',
-        category: 'Business',
-        salary: '₹6-20 LPA',
-        growth: 'Medium',
-        education: "Bachelor's/MBA",
-        match: 78,
-        description: 'Analyze financial data to guide business investment and planning decisions.',
-        skills: ['Excel', 'Financial Modeling', 'Analysis', 'Reporting'],
-        trending: false,
-    },
-    {
-        id: 9,
-        title: 'Civil Engineer',
-        icon: '🏗️',
-        category: 'Engineering',
-        salary: '₹4-15 LPA',
-        growth: 'Stable',
-        education: "Bachelor's Degree",
-        match: 65,
-        description: 'Design, construct, and maintain infrastructure projects like buildings and bridges.',
-        skills: ['AutoCAD', 'Structural Analysis', 'Project Management', 'Design'],
-        trending: false,
-    },
-    {
-        id: 10,
-        title: 'Content Writer',
-        icon: '✍️',
-        category: 'Creative',
-        salary: '₹3-12 LPA',
-        growth: 'Growing',
-        education: "Bachelor's Degree",
-        match: 72,
-        description: 'Create engaging written content for websites, blogs, social media, and marketing.',
-        skills: ['Writing', 'SEO', 'Research', 'Editing'],
-        trending: false,
-    },
-    {
-        id: 11,
-        title: 'DevOps Engineer',
-        icon: '⚙️',
-        category: 'Technology',
-        salary: '₹8-28 LPA',
-        growth: 'Very High',
-        education: "Bachelor's Degree",
-        match: 86,
-        description: 'Bridge development and operations to improve deployment frequency and reliability.',
-        skills: ['Docker', 'Kubernetes', 'CI/CD', 'Cloud'],
-        trending: true,
-    },
-    {
-        id: 12,
-        title: 'Research Scientist',
-        icon: '🔬',
-        category: 'Science',
-        salary: '₹6-20 LPA',
-        growth: 'Stable',
-        education: 'Doctorate',
-        match: 68,
-        description: 'Conduct advanced research to expand knowledge in scientific fields.',
-        skills: ['Research', 'Analysis', 'Writing', 'Experimentation'],
-        trending: false,
-    },
-];
+
 
 const categories = ['All', 'Technology', 'Business', 'Creative', 'Healthcare', 'Engineering', 'Science'];
 const growthFilters = ['All', 'Very High', 'High', 'Medium', 'Growing', 'Stable'];
@@ -205,7 +48,7 @@ export default function CareersPage() {
     const [selectedEducation, setSelectedEducation] = useState('All');
     const [sortBy, setSortBy] = useState('match');
     const [showFilters, setShowFilters] = useState(false);
-    const [bookmarked, setBookmarked] = useState<number[]>([]);
+    const [bookmarked, setBookmarked] = useState<string[]>([]);
     const [showTrendingOnly, setShowTrendingOnly] = useState(false);
 
     const filteredCareers = useMemo(() => {
@@ -259,7 +102,7 @@ export default function CareersPage() {
         return result;
     }, [searchQuery, selectedCategory, selectedGrowth, selectedEducation, sortBy, showTrendingOnly]);
 
-    const toggleBookmark = (id: number) => {
+    const toggleBookmark = (id: string) => {
         setBookmarked((prev) =>
             prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
         );

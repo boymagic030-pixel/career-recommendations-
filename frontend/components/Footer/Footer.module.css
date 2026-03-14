@@ -238,6 +238,29 @@
     opacity: 0.7;
 }
 
+.bottomLegalLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+}
+
+.bottomLegalLinks a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.bottomLegalLinks a:hover {
+    color: var(--accent-primary);
+}
+
+.dot {
+    color: var(--border-subtle);
+}
+
 .socialLinks {
     display: flex;
     gap: 0.75rem;

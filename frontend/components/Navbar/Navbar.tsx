@@ -9,12 +9,16 @@ import {
     X,
     Home,
     Compass,
+    GraduationCap,
     MessageCircle,
     BookOpen,
     Info,
     Phone,
     User,
-    LogIn
+    LogIn,
+    LogOut,
+    FileText,
+    Map
 } from 'lucide-react';
 import { ThemeToggle } from '@/components';
 import styles from './Navbar.module.css';
@@ -22,16 +26,18 @@ import styles from './Navbar.module.css';
 const navLinks = [
     { href: '/', label: 'Home', icon: Home },
     { href: '/careers', label: 'Explore Careers', icon: Compass },
-    { href: '/assessment', label: 'Assessment', icon: Sparkles },
+    { href: '/after12th', label: 'After 12th', icon: GraduationCap },
+    { href: '/pathway', label: 'Pathway Map', icon: Map },
     { href: '/chat', label: 'AI Counselor', icon: MessageCircle },
+    { href: '/resume', label: 'Resume Builder', icon: FileText },
     { href: '/resources', label: 'Resources', icon: BookOpen },
-    { href: '/about', label: 'About', icon: Info },
-    { href: '/contact', label: 'Contact', icon: Phone },
 ];
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [authChecked, setAuthChecked] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -41,6 +47,21 @@ export default function Navbar() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    useEffect(() => {
+        fetch('/api/auth/status')
+            .then(res => res.json())
+            .then(data => {
+                setIsAuthenticated(data.isAuthenticated);
+                setAuthChecked(true);
+            })
+            .catch(() => setAuthChecked(true));
+    }, []);
+
+    const handleLogout = async () => {
+        await fetch('/api/auth/logout', { method: 'POST' });
+        window.location.href = '/login';
+    };
 
     return (
         <>
@@ -65,7 +86,7 @@ export default function Navbar() {
 
                     {/* Desktop Navigation */}
                     <div className={styles.navLinks}>
-                        {navLinks.slice(0, 5).map((link) => (
+                        {navLinks.slice(0, 7).map((link) => (
                             <Link key={link.href} href={link.href} className={styles.navLink}>
                                 <motion.span
                                     whileHover={{ y: -2 }}
@@ -82,10 +103,17 @@ export default function Navbar() {
                         {/* Theme Toggle */}
                         <ThemeToggle />
 
-                        <Link href="/login" className={styles.loginBtn}>
-                            <LogIn size={18} />
-                            <span>Login</span>
-                        </Link>
+                        {authChecked && isAuthenticated ? (
+                            <button onClick={handleLogout} className={styles.loginBtn}>
+                                <LogOut size={18} />
+                                <span>Logout</span>
+                            </button>
+                        ) : (
+                            <Link href="/login" className={styles.loginBtn}>
+                                <LogIn size={18} />
+                                <span>Login</span>
+                            </Link>
+                        )}
                         <Link href="/assessment">
                             <motion.button
                                 className={styles.ctaBtn}
@@ -145,10 +173,17 @@ export default function Navbar() {
                             ))}
 
                             <div className={styles.mobileCta}>
-                                <Link href="/login" className={styles.mobileLoginBtn}>
-                                    <User size={18} />
-                                    Login / Sign Up
-                                </Link>
+                                {authChecked && isAuthenticated ? (
+                                    <button onClick={handleLogout} className={styles.mobileLoginBtn} style={{ width: '100%' }}>
+                                        <LogOut size={18} />
+                                        Logout
+                                    </button>
+                                ) : (
+                                    <Link href="/login" className={styles.mobileLoginBtn} onClick={() => setIsMobileMenuOpen(false)}>
+                                        <User size={18} />
+                                        Login / Sign Up
+                                    </Link>
+                                )}
                                 <Link href="/assessment" className={styles.mobileCtaBtn}>
                                     <Sparkles size={18} />
                                     Start Free Assessment

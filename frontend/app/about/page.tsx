@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
     Sparkles,
@@ -65,22 +66,28 @@ const team = [
     {
         name: 'Meganathan N',
         role: 'Team Lead & ML Engineer',
-        avatar: 'PK',
+        dept: 'AI & Data Science',
+        avatar: '/team/meganathan.jpg',
         description: 'Leading the development of AI recommendation algorithms and system architecture.',
+        skills: ['Machine Learning', 'Python', 'FastAPI'],
         linkedin: '#',
     },
     {
         name: 'Mithreshwaran G',
         role: 'Full Stack Developer',
-        avatar: 'MG',
+        dept: 'AI & Data Science',
+        avatar: '/team/mithreshwaran.jpg',
         description: 'Building the frontend experience and backend API infrastructure.',
+        skills: ['Next.js', 'React', 'Node.js'],
         linkedin: '#',
     },
     {
         name: 'Pradeep Kumar S',
         role: 'Data Scientist',
-        avatar: 'MN',
+        dept: 'AI & Data Science',
+        avatar: '/team/pradeep.jpg',
         description: 'Analyzing career data and optimizing recommendation accuracy.',
+        skills: ['Data Analysis', 'SQL', 'Deep Learning'],
         linkedin: '#',
     },
 ];
@@ -88,7 +95,7 @@ const team = [
 const mentor = {
     name: 'Ms. Priyanka R',
     role: 'Project Mentor',
-    avatar: 'PR',
+    avatar: '/team/priyanka.jpg',
     description: 'Guiding the team with expertise in AI/ML and software development best practices.',
 };
 
@@ -305,12 +312,35 @@ export default function AboutPage() {
                                     transition={{ duration: 0.6, delay: index * 0.15 }}
                                     whileHover={{ y: -8 }}
                                 >
+                                    <div className={styles.teamBadgeTop}>{member.dept}</div>
                                     <div className={styles.teamAvatar}>
-                                        {member.avatar}
+                                        <Image
+                                            src={member.avatar}
+                                            alt={member.name}
+                                            width={80}
+                                            height={80}
+                                            style={{ objectFit: 'cover', borderRadius: '50%' }}
+                                            onError={(e: any) => {
+                                                e.currentTarget.style.display = 'none';
+                                                
+                                                // Create initial letter placeholder if image fails to load
+                                                const fallbackSpan = document.createElement('span');
+                                                fallbackSpan.style.color = 'white';
+                                                fallbackSpan.innerText = member.name.charAt(0);
+                                                e.currentTarget.parentElement?.appendChild(fallbackSpan);
+                                            }}
+                                        />
                                     </div>
                                     <h3 className={styles.teamName}>{member.name}</h3>
                                     <span className={styles.teamRole}>{member.role}</span>
                                     <p className={styles.teamDescription}>{member.description}</p>
+                                    
+                                    <div className={styles.teamSkillsList}>
+                                        {member.skills.map(skill => (
+                                            <span key={skill} className={styles.skillTagSmall}>{skill}</span>
+                                        ))}
+                                    </div>
+
                                     <a href={member.linkedin} className={styles.teamSocial}>
                                         <Linkedin size={18} />
                                     </a>
@@ -329,8 +359,26 @@ export default function AboutPage() {
                         >
                             <h3 className={styles.mentorHeading}>Project Mentor</h3>
                             <div className={styles.mentorCard}>
-                                <div className={styles.mentorAvatar}>
-                                    {mentor.avatar}
+                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                    <div className={styles.teamBadgeTop}>Faculty Mentor</div>
+                                    <div className={styles.mentorAvatar}>
+                                        <Image
+                                            src={mentor.avatar}
+                                            alt={mentor.name}
+                                            width={64}
+                                            height={64}
+                                            style={{ objectFit: 'cover', borderRadius: '50%' }}
+                                            onError={(e: any) => {
+                                                e.currentTarget.style.display = 'none';
+                                                
+                                                // Create initial letter placeholder if image fails to load
+                                                const fallbackSpan = document.createElement('span');
+                                                fallbackSpan.style.color = 'white';
+                                                fallbackSpan.innerText = mentor.name.charAt(0);
+                                                e.currentTarget.parentElement?.appendChild(fallbackSpan);
+                                            }}
+                                        />
+                                    </div>
                                 </div>
                                 <div className={styles.mentorInfo}>
                                     <h4 className={styles.mentorName}>{mentor.name}</h4>

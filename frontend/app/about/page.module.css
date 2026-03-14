@@ -267,20 +267,29 @@
     box-shadow: var(--shadow-xl);
 }
 
+.teamBadgeTop {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    opacity: 0.8;
+}
+
 .teamAvatar {
     width: 80px;
     height: 80px;
-    background: var(--gradient-primary);
-    border-radius: 20px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    box-shadow: var(--shadow-button);
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-card-hover);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-on-accent);
-    margin: 0 auto 1.5rem;
-    box-shadow: var(--shadow-button);
 }
 
 .teamName {
@@ -306,7 +315,31 @@
     font-size: 0.9375rem;
     color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.teamSkillsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.skillTagSmall {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    background: var(--bg-toggle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+
+.skillTagSmall:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
 }
 
 .teamSocial {
@@ -356,16 +389,14 @@
 .mentorAvatar {
     width: 64px;
     height: 64px;
-    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-    border-radius: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-card-hover);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-on-accent);
-    flex-shrink: 0;
 }
 
 .mentorInfo {
